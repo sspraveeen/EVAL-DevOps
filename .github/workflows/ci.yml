@@ -1,0 +1,16 @@
+name: CI Tests HTML
+on:
+  push:
+    branches: [ VERIF ]
+
+jobs:
+  check-html:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: HTML Hint Validation
+        run: |
+          # Cette commande va vérifier si le HTML est bien formé
+          npx htmlhint index.html
